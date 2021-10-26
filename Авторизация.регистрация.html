@@ -4,5 +4,25 @@
         mysql_select_db ("AvaLion",$db);
         ?> 
 </script>
-<script>
+<body>
+     Сайт
+        <php
+             $connection=mysql_connect('phpMyAdmin','db_name1','14082020aA')
+             
+$mysqli = new mysqli('localhost', 'USER', 'PASSWORD', 'BASENAME');
+ 
+if ($mysqli->connect_error) {
+    die('Ошибка подключения (' . $mysqli->connect_errno . ') '
+     . $mysqli->connect_error);
+}
+echo '<p>Соединение установлено... ' . $mysqli->host_info . "</p>";
+$result = $mysqli->query("SHOW TABLES;");
+while ($row = $result->fetch_row()) {
+    echo "<p>Таблица: {$row[0]}</p>";
+}
+echo 'Версия MYSQL сервера: ' . $mysqli->server_info . "\n";
+$mysqli->close();
+ 
+        >
+</body>
 
