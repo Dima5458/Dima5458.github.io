@@ -7,11 +7,10 @@
 <body>
      Сайт
         <php
-             $connection=mysql_connect('phpMyAdmin','db_name1','14082020aA')
+             $connection=mysql_connect("phpMyAdmin","db_name1","14082020aA")
              
-$mysqli = new mysqli('phpMyAdmin','db_name1','14082020aA');
- 
-if ($mysqli->connect_error) {
+$mysqli = new mysqli("phpMyAdmin","db_name1","14082020aA");
+ if ($mysqli->connect_error) {
     die('Ошибка подключения (' . $mysqli->connect_errno . ') '
      . $mysqli->connect_error);
 }
