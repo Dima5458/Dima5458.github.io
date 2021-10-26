@@ -1,38 +1,6 @@
 <script>
 <?php
-        $db = mysql_connect ("phpMyAdmin","db_name1","14082020aA");
-        mysql_select_db ("AvaLion",$db);
-        ?> 
+    $db = mysql_connect ("phpMyAdmin","db_name1","14082020aA");
+    mysql_select_db ("AvaLion",$db);
+    ?>
 </script>
-<body>
-     Сайт
-        <php
-             $connection=mysql_connect("phpMyAdmin","db_name1","14082020aA")
-             
-<?php
-$dblocation = «phpMyAdmin»;
-$dbname = «db_name1»;
-$dbuser = «AvaLion»;
-$dbpasswd = «14082020aA»;
-$dbcnx = mysql_connect($dblocation, $dbuser, $dbpasswd);
-if (!$dbcnx)
-{
-echo «<p>Попытка подключения не удалась MySQL</p>»;
-exit();
-}
-if (!mysql_select_db($dbname,$dbcnx) )
-{
-echo «<p>Выбрать базу данных невозможно</p>»;
-exit();
-}
-$ver = mysql_query(«SELECT VERSION()»);
-if(!$ver)
-{
-echo «<p>Запрос неверен</p>»;
-exit();
-}
-echo mysql_result($ver, 0);
-?>
-
-</body>
-
