@@ -9,19 +9,30 @@
         <php
              $connection=mysql_connect("phpMyAdmin","db_name1","14082020aA")
              
-$mysqli = new mysqli("phpMyAdmin","db_name1","14082020aA");
- if ($mysqli->connect_error) {
-    die('Ошибка подключения (' . $mysqli->connect_errno . ') '
-     . $mysqli->connect_error);
+<?php
+$dblocation = «phpMyAdmin»;
+$dbname = «db_name1»;
+$dbuser = «db_name1»;
+$dbpasswd = «14082020aA»;
+$dbcnx = mysql_connect($dblocation, $dbuser, $dbpasswd);
+if (!$dbcnx)
+{
+echo «<p>Попытка подключения не удалась MySQL</p>»;
+exit();
 }
-echo '<p>Соединение установлено... ' . $mysqli->host_info . "</p>";
-$result = $mysqli->query("SHOW TABLES;");
-while ($row = $result->fetch_row()) {
-    echo "<p>Таблица: {$row[0]}</p>";
+if (!mysql_select_db($dbname,$dbcnx) )
+{
+echo «<p>Выбрать базу данных невозможно</p>»;
+exit();
 }
-echo 'Версия MYSQL сервера: ' . $mysqli->server_info . "\n";
-$mysqli->close();
- 
-        >
+$ver = mysql_query(«SELECT VERSION()»);
+if(!$ver)
+{
+echo «<p>Запрос неверен</p>»;
+exit();
+}
+echo mysql_result($ver, 0);
+?>
+
 </body>
 
